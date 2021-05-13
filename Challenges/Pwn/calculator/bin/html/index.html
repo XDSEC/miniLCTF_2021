@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>🧮 Cross Platform Calculator</title>
+</head>
+
+<body bgcolor='#E6E6FA'>
+    <div align='center'>
+        <h1>Nice to meet you!</h1>
+        <h1>I'm a safe calculator 🧮.</h1>
+        <!-- This is Rx's homework -->
+    </div>
+    <div align='center'>
+        <form id="calcForm" onsubmit="return false;">
+            <input type="text" id="arg_x" name="x"  style="width:250px; height: 50px; font-size:20px;" maxlength="32" oninput="value=value.replace(/[^\d]/g,'')"/>
+            <select style="width: 70px; height: 50px; font-size:20px;" id="arg_action" name="action">
+                <option value="add">+</option>
+                <option value="sub">-</option>
+                <option value="mul">x</option>
+                <option value="div">÷</option>
+            </select>
+            <input type="text" id="arg_y" name="y"  style="width:250px; height: 50px;font-size:20px;" maxlength="32" oninput="value=value.replace(/[^\d]/g,'')"/>
+            <button style="width:70px; height: 50px;font-size:20px;" onclick="do_calc()">=</button>
+            <input type="text" id="calc_result" style="width:250px; height: 50px;font-size:20px;" name="res" onchange="value=value.replace(/[^\d]/g,'')">
+        </form>
+        <!--no RCE-->
+    </div>
+</body>
+
+<footer>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function do_calc() {
+            $.ajax({
+                type: "GET",
+                url: "/calc",
+                data: { 
+                    "x": document.getElementById('arg_x').value,
+                    "y": document.getElementById('arg_y').value,
+                    "action": document.getElementById('arg_action').value
+                },
+                success: function (data) {
+                    console.log("result: "+data);
+                    document.getElementById('calc_result').value = data
+                }
+            });
+        }
+    </script>
+</footer>
+
+</html>
