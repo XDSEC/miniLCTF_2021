@@ -48,10 +48,15 @@ End time: 20: 00 2021.05.06
 > 傀儡进程的实现
 >
 > 1.通过CreateProcess创建进程，传入参数CREATE_SUSPENDED使进程挂起
+> 
 > 2.通过NtUnmapViewOfSection清空新进程的内存数据（ZwUnmapViewOfSection）
+> 
 > 3.通过VirtualAllocEx申请新的内存
+> 
 > 4.通过WriteProcessMemory向内存写入payload
+> 
 > 5.通过SetThreadContext设置入口点
+> 
 > 6.通过ResumeThread唤醒进程，执行payload
 
 ##### 在IDA中确定ResumeThread的位置
