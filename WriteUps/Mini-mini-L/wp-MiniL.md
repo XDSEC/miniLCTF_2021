@@ -33,7 +33,7 @@ End time: 20: 00 2021.05.06
 
 用`john`爆破后四位，指定自己的字典，得到解压密码：`minil4396`。
 
-用`Partitionguru`提取出一个视频和一封邮件，视频用pr提取出一串数字：`7355608`。在用google搜索`Senate bill 1621 ; Title 3 , Section 303 `时，发现这类邮件加密的解密网站：[spammimic - decode](https://www.spammimic.com/decode.cgi)，以`7355608`为key，解密得：`MiniLCTF{n3ver_g0nna_L3t_H5_dowN}`。
+用`Partitionguru`提取出一个视频和一封邮件，视频用pr提取出一串数字：`7355608`。在用google搜索`Senate bill 1621 ; Title 3 , Section 303 `时，发现这类邮件加密的解密网站：[spammimic - decode](https://www.spammimic.com/decode.cgi)，以`7355608`为key，解密得：`MiniLCTF{n3ver_g0nna_L3t_Y0u_dowN}`。
 
 ## Reverse
 
